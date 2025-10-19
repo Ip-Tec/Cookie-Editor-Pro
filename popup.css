@@ -1,10 +1,36 @@
 /* popup.css */
 
+:root {
+  --primary-color: #f45d42;
+  --secondary-color: #42caf4;
+  --danger-color: #dc3545;
+  --background-color: #f5f5f5;
+  --text-color: #333;
+  --white-color: #fff;
+  --light-gray-color: #eee;
+  --medium-gray-color: #ddd;
+  --dark-gray-color: #888;
+  --modal-background-color: rgba(0, 0, 0, 0.4);
+  --modal-content-background-color: rgba(254, 254, 254, 0.9);
+}
+
+/* Color scheme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #1e1e1e;
+    --text-color: #f5f5f5;
+    --light-gray-color: #333;
+    --medium-gray-color: #444;
+    --dark-gray-color: #bbb;
+    --modal-content-background-color: rgba(34, 34, 34, 0.9);
+  }
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   margin: 0;
-  background-color: #f5f5f5;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .container {
@@ -12,12 +38,14 @@ body {
   height: auto;
   padding: 15px;
   min-height: 450px;
-  background-image: url("./images/icon512.png");
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .tabs {
   display: flex;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--medium-gray-color);
 }
 
 .tab-button {
@@ -27,11 +55,12 @@ body {
   cursor: pointer;
   font-size: 14px;
   transition: all 0.2s ease-in-out;
+  color: var(--text-color);
 }
 
 .tab-button.active {
-  border-bottom: 2px solid #f45d42;
-  color: #f45d42;
+  border-bottom: 2px solid var(--primary-color);
+  color: var(--primary-color);
 }
 
 .tab-content {
@@ -49,33 +78,35 @@ table {
 }
 
 thead {
-  background-color: #eee;
+  background-color: var(--light-gray-color);
 }
 
 th,
 td {
   padding: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--medium-gray-color);
   text-align: left;
   font-size: 12px;
 }
 
-td {
+td.long-text {
   max-width: 150px;
   overflow-x: auto;
-  white-space: nowrap;
+  white-space: wrap;
 }
 
 .actions button {
-  background-color: transparent;
+  color: var(--white-color);
   border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
   cursor: pointer;
-  padding: 5px;
+  font-size: 12px;
 }
 
 #add-button {
-  background-color: #f45d42;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--white-color);
   border: none;
   padding: 10px 15px;
   border-radius: 5px;
@@ -93,21 +124,21 @@ td {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: var(--modal-background-color);
 }
 
 .modal-content {
-  background-color: rgba(254, 254, 254, 0.7);
+  background-color: var(--modal-content-background-color);
   margin: 15% auto;
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid var(--dark-gray-color);
   width: 80%;
   max-width: 500px;
   border-radius: 5px;
 }
 
 .close-button {
-  color: #aaa;
+  color: var(--dark-gray-color);
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -133,29 +164,19 @@ td {
 }
 
 #save-button {
-  background-color: #f45d42;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--white-color);
   padding: 10px 15px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
-.edit-button,
-.delete-button {
-  background-color: #42caf4 !important;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 12px;
-}
-
 .edit-button {
+  background-color: var(--secondary-color);
   margin-right: 5px;
 }
 
 .delete-button {
-  background-color: #dc3545 !important;
+  background-color: var(--danger-color);
 }
