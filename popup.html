@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cookie/Storage Editor</title>
+  <link rel="stylesheet" type="text/css" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="tabs">
+      <button class="tab-button active" data-tab="cookies">Cookies</button>
+      <button class="tab-button" data-tab="local-storage">Local Storage</button>
+      <button class="tab-button" data-tab="session-storage">Session Storage</button>
+    </div>
+
+    <div id="cookies" class="tab-content active">
+      <table id="cookies-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Value</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div id="local-storage" class="tab-content">
+      <table id="local-storage-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Value</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div id="session-storage" class="tab-content">
+      <table id="session-storage-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Value</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <button id="add-button">Add New</button>
+
+    <div id="edit-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2 id="edit-modal-title"></h2>
+        <input type="hidden" id="edit-type">
+        <input type="hidden" id="edit-original-name">
+        <div class="form-group">
+          <label for="edit-name">Name:</label>
+          <input type="text" id="edit-name">
+        </div>
+        <div class="form-group">
+          <label for="edit-value">Value:</label>
+          <textarea id="edit-value"></textarea>
+        </div>
+        <button id="save-button">Save</button>
+      </div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
